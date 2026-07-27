@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《小明去大茶樓》SEN 教學調適指引</title>
+<style>
+  :root{
+    --orange:#E8863A;--deep-orange:#C25A1E;--red:#C0392B;--gold:#F4B942;
+    --cream:#FFF8EF;--ink:#3A2A20;--soft:#7A6A5E;--blue:#3E7CB1;--green:#4E9A6B;--card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Segoe UI",sans-serif;background:#2a1c14;color:var(--ink);line-height:1.7;overflow:hidden;}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px 56px 72px;}
+  .slide{display:none;width:100%;max-width:1000px;height:100%;max-height:640px;background:var(--cream);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow-y:auto;padding:44px 52px;scrollbar-width:thin;}
+  .slide.active{display:block;animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .slide::-webkit-scrollbar{width:9px;}
+  .slide::-webkit-scrollbar-thumb{background:#d8c3ad;border-radius:8px;}
+  .cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(150deg,var(--orange),var(--red));color:#fff;}
+  .cover .emoji{font-size:64px;margin-bottom:12px;}
+  .cover h1{font-size:44px;letter-spacing:2px;margin-bottom:14px;text-shadow:0 3px 10px rgba(0,0,0,.25);}
+  .cover h2{font-size:26px;font-weight:600;opacity:.95;margin-bottom:8px;}
+  .cover h3{font-size:18px;font-weight:400;opacity:.9;}
+  .cover .tag{margin-top:26px;background:rgba(255,255,255,.2);padding:8px 22px;border-radius:30px;font-size:15px;}
+  h1.title{font-size:32px;color:var(--deep-orange);border-bottom:3px solid var(--gold);padding-bottom:12px;margin-bottom:8px;}
+  h2.sec{font-size:24px;color:var(--red);margin:22px 0 12px;padding-left:12px;border-left:6px solid var(--orange);}
+  h3.sub{font-size:19px;color:var(--deep-orange);margin:18px 0 8px;}
+  h4.mini{font-size:16px;color:var(--blue);margin:14px 0 6px;font-weight:700;}
+  p{margin:8px 0;font-size:15.5px;}
+  ul,ol{margin:8px 0 8px 24px;font-size:15.5px;}
+  li{margin:5px 0;}
+  strong{color:var(--deep-orange);}
+  blockquote{background:#FDF1DF;border-left:5px solid var(--gold);padding:14px 20px;margin:14px 0;border-radius:0 10px 10px 0;font-size:15px;}
+  blockquote.note{background:#EAF3FA;border-left-color:var(--blue);}
+  blockquote.teacher{background:#FBEEE6;border-left-color:var(--orange);}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  th{background:var(--orange);color:#fff;padding:10px 12px;text-align:left;font-weight:600;}
+  td{padding:9px 12px;border-bottom:1px solid #f0e4d5;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#FCF5EC;}
+  pre{background:#2f2018;color:#ffe;padding:16px 20px;border-radius:12px;margin:14px 0;font-size:13.5px;line-height:1.6;overflow-x:auto;white-space:pre;font-family:"Noto Sans Mono CJK HK","Consolas",monospace;}
+  .chant{background:linear-gradient(135deg,var(--gold),var(--orange));color:#fff;padding:14px 22px;border-radius:14px;text-align:center;font-size:19px;font-weight:700;margin:16px 0;letter-spacing:1px;box-shadow:0 6px 16px rgba(200,90,30,.3);}
+  .nav{position:fixed;bottom:0;left:0;right:0;height:56px;background:rgba(20,12,8,.92);display:flex;align-items:center;justify-content:center;gap:20px;z-index:20;}
+  .nav button{background:var(--orange);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;}
+  .nav button:hover{background:var(--gold);}
+  .nav button:disabled{opacity:.3;cursor:default;}
+  .counter{color:#fff;font-size:14px;min-width:120px;text-align:center;font-variant-numeric:tabular-nums;}
+  .counter .lbl{display:block;font-size:11px;opacity:.6;}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);z-index:30;transition:width .3s;}
+  .hint{position:fixed;top:12px;right:20px;color:rgba(255,255,255,.5);font-size:12px;z-index:25;}
+  @media(max-width:640px){.stage{padding:16px 12px 66px;}.slide{padding:26px 22px;}.cover h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="hint">← → 揭頁</div>
+<div class="stage" id="stage">
+
+<section class="slide cover">
+  <div class="emoji">🧩</div>
+  <h1>《小明去大茶樓》</h1>
+  <h2>SEN 教學調適指引</h2>
+  <h3>幼稚園融合教育支援教師專用</h3>
+  <div class="tag">Part 1 ｜ SEN 支援</div>
+</section>
+
+<section class="slide">
+  <h1 class="title">使用說明</h1>
+  <blockquote class="note">
+    本指引供前線老師及學習支援人員參考，協助有特殊教育需要學童（SEN）更有效地參與本套教材嘅學習活動。所有建議均以正向、包容嘅態度為本，強調每位學童均有能力按自身步伐學習成長。
+  </blockquote>
+  <h2 class="sec">一、教材調適建議</h2>
+  <h3 class="sub">1.1 簡化語言指示</h3>
+  <table>
+    <tr><th>原有指示</th><th>調適後建議</th></tr>
+    <tr><td>「將一支筷子放喺虎口，用無名指輕輕托住」</td><td>「把筷子放喺呢度（指着手部）➜ 托住！唔好郁！」</td></tr>
+    <tr><td>「上面嗰支好似拿鉛筆咁，用拇指、食指、中指夾住」</td><td>「拿筷子，好似拿鉛筆！（出示鉛筆實物）夾住！」</td></tr>
+    <tr><td>「上面嗰支動一動，下面嗰支唔好郁」</td><td>「動！（指上面）唔郁！（指下面）夾！」</td></tr>
+  </table>
+  <p><strong>通用原則：</strong></p>
+  <ul>
+    <li>每次只給予<strong>一個指示</strong>，完成後才給下一個</li>
+    <li>使用<strong>短句</strong>（五個字或以內），減少語言處理負擔</li>
+    <li>重要字詞配合<strong>手勢或動作</strong>同步示範，例如講「托住」時老師同步做出托住嘅手勢</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">1.2 增加視覺提示</h3>
+  <h4 class="mini">① 步驟圖卡（建議製作）</h4>
+  <p>為三個握筷步驟製作獨立圖卡，每張圖卡：</p>
+  <ul>
+    <li>只展示<strong>單一步驟</strong>嘅手部特寫照片或插圖</li>
+    <li>配上<strong>粗體大字口訣</strong>：❶ 托住　❷ 夾住　❸ 動一動</li>
+    <li>建議尺寸：A5 或以上，字體 36pt 或以上</li>
+    <li>可過膠後放於每位學童桌面作即時參考</li>
+  </ul>
+  <h4 class="mini">② 手部位置貼紙提示</h4>
+  <ul>
+    <li>在教具筷子上用<strong>不同顏色膠布</strong>區分上筷（橙色）及下筷（藍色）</li>
+    <li>與第 7–9 頁分解圖嘅顏色標記保持一致，形成視覺聯繫</li>
+    <li>對有視知覺處理困難嘅學童尤其有幫助</li>
+  </ul>
+  <h4 class="mini">③ 真實物件配合繪本</h4>
+  <ul>
+    <li>閱讀第 3 頁時，出示蝦餃圖片或食物模型，增強學童對茶樓情境嘅理解</li>
+    <li>閱讀第 6 頁時，老師可穿上簡單圍裙扮演「阿姨」，增強角色代入感</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">1.3 分拆及重組學習步驟</h3>
+  <p>針對<strong>精細動作</strong>或<strong>執行功能</strong>有困難嘅學童，建議將握筷練習進一步分拆：</p>
+  <pre>階段一（預備）
+↓ 先用手指捏取大型物件（如大顆珠仔、棉花球）
+↓ 練習「拿鉛筆」握姿，熟練後才引入筷子概念
+
+階段二（單支筷子）
+↓ 只練習「托住下筷、唔好郁」（第一步）
+↓ 重複至熟練，給予充分練習時間，不急進入第二步
+
+階段三（雙支筷子）
+↓ 引入上筷，練習夾住但暫緩移動要求
+↓ 最後才加入「動一動」夾物動作
+
+階段四（夾取練習）
+↓ 由大型軟身物件（棉花球）→ 中型物件（橡皮擦）→ 細型物件（糖果粒）
+↓ 成功後才嘗試夾取食物</pre>
+</section>
+
+<section class="slide">
+  <h3 class="sub">1.4 針對不同支援需要嘅教材調適</h3>
+  <h4 class="mini">🔵 專注力不足／活動量較高嘅學童</h4>
+  <ul>
+    <li>將繪本閱讀分為<strong>兩節</strong>進行：第一節讀第 1–6 頁（情節理解），第二節讀第 7–13 頁（技能學習），避免單次學習時間過長</li>
+    <li>每隔 2–3 頁設置一個<strong>小互動環節</strong>（如拍手、跟讀口訣），維持專注度</li>
+    <li>利用<strong>計時沙漏</strong>（3–5 分鐘）讓學童清楚知道練習時段嘅長度，減低焦慮</li>
+  </ul>
+  <h4 class="mini">🟠 語言發展遲緩嘅學童</h4>
+  <ul>
+    <li>降低口頭回應要求，接受學童以<strong>指示圖卡、點頭搖頭或肢體動作</strong>作回應</li>
+    <li>導讀問題可簡化為「是／否」問題，例如：「小明係唔係夾到蝦餃㗎？」（指着圖畫）</li>
+    <li>鼓勵學童模仿口訣，即使只能講出關鍵字（「托」「夾」「動」）亦給予正面回應</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h4 class="mini">🟢 社交溝通有困難嘅學童（包括自閉症譜系障礙特徵）</h4>
+  <ul>
+    <li>提前預告課堂流程：「今日我哋會：❶ 睇故事書 ➜ ❷ 學握筷子 ➜ ❸ 一齊練習」，可配合視覺流程圖</li>
+    <li>第 6 頁「阿姨幫助小明」嘅情節可延伸討論，以<strong>社交故事</strong>形式配合：「當我唔識做，我可以問：『請問可唔可以幫我？』」</li>
+    <li>避免突然點名要求個別學童示範，可先詢問：「有冇小朋友想試下？」，讓學童自願參與</li>
+  </ul>
+  <h4 class="mini">🔴 感覺統合有困難嘅學童</h4>
+  <ul>
+    <li><strong>觸覺敏感</strong>：讓學童自行選擇筷子材質（竹製、塑膠），減少因觸感引起嘅不適；練習前先做手部暖身活動（搓手、手指操）</li>
+    <li><strong>本體感覺處理困難</strong>：使用有<strong>防滑橡膠圈</strong>嘅訓練筷子輔助工具，讓學童更易感知手指施力位置</li>
+    <li><strong>視知覺困難</strong>：加大步驟圖卡嘅圖像，減少背景雜訊，以白底黑線清晰繪製手部動作</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="sec">二、課堂支援策略</h2>
+  <h3 class="sub">策略一：座位安排</h3>
+  <p><strong>小組教學優先</strong></p>
+  <ul>
+    <li>握筷練習建議以<strong>4–6 人小組</strong>進行，讓老師能近距離觀察每位學童嘅手部動作並即時協助</li>
+    <li>SEN 學童宜安排坐於<strong>老師慣用手一側</strong>，方便老師俯身手把手示範</li>
+    <li>避免安排 SEN 學童坐於視線受阻（如側面、角落）或容易分心（如近門口、走廊）嘅位置</li>
+    <li>可安排<strong>能力較強嘅同伴</strong>坐於旁邊，透過自然觀察模仿學習，但避免施壓比較</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">策略二：多感官教學</h3>
+  <p>本教材本身已具備視覺（插圖）及聽覺（韻文、口訣）元素，建議進一步加入以下感官刺激：</p>
+  <h4 class="mini">① 觸覺／本體感覺</h4>
+  <ul>
+    <li>準備<strong>實物筷子</strong>（訓練用連接筷或普通竹筷）讓學童在閱讀第 7–9 頁時同步觸摸及嘗試握姿</li>
+    <li>提供<strong>不同大小嘅夾取物件</strong>（棉花球、積木、橡皮擦），讓學童按能力選擇</li>
+  </ul>
+  <h4 class="mini">② 聽覺節奏</h4>
+  <ul>
+    <li>利用書中口訣「<strong>托住！夾住！動一動！</strong>」加入<strong>拍手節奏</strong>（強拍—強拍—弱強弱），令學童透過節奏記憶動作順序</li>
+    <li>可配合簡單打擊樂器（響板、拍手）加強節奏感</li>
+  </ul>
+  <h4 class="mini">③ 視覺回饋</h4>
+  <ul>
+    <li>每次學童成功夾起物件，即時在其專屬「<strong>練習進度表</strong>」上貼上小貼紙，視覺化呈現進步</li>
+    <li>進度表可設計為茶樓主題（例如每貼一個貼紙等於「叫咗一籠點心」），配合繪本情境</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">策略三：正向行為支援</h3>
+  <h4 class="mini">① 建立明確期望與例行程序</h4>
+  <ul>
+    <li>每節練習前重複相同開場語：「今日我哋嚟試下握筷子，記住——慢慢做，唔緊要㗎！」</li>
+    <li>以<strong>小明的榜樣故事</strong>作正向框架：「小明都夾咗幾次先夾到，我哋係咁㗎！」</li>
+    <li>明確讚賞<strong>過程</strong>而非純粹結果：「你今次比上次握得穩好多，真係叻！」</li>
+  </ul>
+  <h4 class="mini">② 預告轉換與結束</h4>
+  <ul>
+    <li>活動結束前 2 分鐘給予提示：「再練兩次，我哋就要收筷子喇！」</li>
+    <li>使用視覺倒數（沙漏或計時器），減少因突然轉換活動引起嘅情緒困難</li>
+  </ul>
+  <h4 class="mini">③ 情緒支援</h4>
+  <ul>
+    <li>預先向學童說明：「練習筷子係需要時間㗎，跌走咗唔緊要，再試就好！」（呼應第 5 頁小明着急嘅情節）</li>
+    <li>若學童出現明顯挫敗情緒，可暫停練習，先以語言確認感受：「我知道你有少少着急，係唔係？放鬆，慢慢嚟！」，再決定是否繼續</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="sec">三、習作調適</h2>
+  <h3 class="sub">3.1 原有習作活動（假設）</h3>
+  <p>一般同類教材嘅習作活動包括：塗色、連線、排序步驟圖、實物練習等。以下針對各類活動提供調適建議。</p>
+  <h3 class="sub">3.2 各類習作嘅具體調適</h3>
+  <h4 class="mini">📝 步驟排序習作</h4>
+  <p><strong>一般要求：</strong>將三個握筷步驟圖剪貼並排成正確順序</p>
+  <table>
+    <tr><th>調適級別</th><th>適用對象</th><th>調適方式</th></tr>
+    <tr><td><strong>調適一</strong></td><td>精細動作困難</td><td>提供已剪好嘅圖卡，只需排列及貼上，毋須自行剪切</td></tr>
+    <tr><td><strong>調適二</strong></td><td>認知理解困難</td><td>減至兩個步驟排序（省略其中一步），或提供部分完成示例</td></tr>
+    <tr><td><strong>調適三</strong></td><td>手部控制困難</td><td>改用大型圖卡（A4 尺寸）及大範圍貼紙，降低精細動作要求</td></tr>
+    <tr><td><strong>替代方式</strong></td><td>多方面困難</td><td>學童以手指指出正確步驟順序，老師代為記錄，達成相同學習目標</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h4 class="mini">✏️ 塗色／描畫習作</h4>
+  <p><strong>一般要求：</strong>替小明嘅筷子或手部塗色</p>
+  <table>
+    <tr><th>調適級別</th><th>適用對象</th><th>調適方式</th></tr>
+    <tr><td><strong>調適一</strong></td><td>手部控制困難</td><td>提供<strong>粗框線條</strong>版本，增大塗色範圍，降低精確度要求</td></tr>
+    <tr><td><strong>調適二</strong></td><td>感覺敏感</td><td>提供替代工具選擇：粗蠟筆、粗頭水彩筆或手指印章，毋須強制使用鉛筆</td></tr>
+    <tr><td><strong>調適三</strong></td><td>視知覺困難</td><td>提供<strong>高對比度</strong>黑白版本（加粗輪廓線），或放大至 A3 尺寸</td></tr>
+    <tr><td><strong>替代方式</strong></td><td>多方面困難</td><td>改為貼貼紙（預先印備顏色貼紙），學童在指定範圍貼上顏色，完成「塗色」目標</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h4 class="mini">🗣️ 口頭回應習作</h4>
+  <p><strong>一般要求：</strong>回答「小明點解夾唔到蝦餃？」「你喺茶樓食過啲乜嘢？」等問題</p>
+  <table>
+    <tr><th>調適級別</th><th>適用對象</th><th>調適方式</th></tr>
+    <tr><td><strong>調適一</strong></td><td>語言表達困難</td><td>改為<strong>圖片選擇題</strong>，學童指出或遞交相關圖片作回應</td></tr>
+    <tr><td><strong>調適二</strong></td><td>社交溝通困難</td><td>允許學童以<strong>圖畫或符號</strong>代替口頭回答，或在一對一環境下作答</td></tr>
+    <tr><td><strong>調適三</strong></td><td>選擇性緘默傾向</td><td>接受學童點頭、搖頭、比手勢等非語言方式回應，充分肯定其參與</td></tr>
+    <tr><td><strong>替代方式</strong></td><td>多方面困難</td><td>改為「角色扮演」：學童扮演小明或阿姨，在結構性情境中自然引出語言表達</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h4 class="mini">🥢 實物練習習作</h4>
+  <p><strong>一般要求：</strong>用筷子夾取物件，記錄夾到幾多粒</p>
+  <table>
+    <tr><th>調適</th><th>具體做法</th></tr>
+    <tr><td>降低夾取難度</td><td>由大型軟身物件（棉花球、海綿塊）開始，成功後才進階至細型硬身物件</td></tr>
+    <tr><td>輔助工具</td><td>提供<strong>訓練筷子</strong>（彈簧連接款或附指環款），讓學童先感受夾取嘅動作模式</td></tr>
+    <tr><td>替代活動</td><td>若學童暫時未能使用筷子，可改用<strong>夾子</strong>（如食物夾）完成相同夾取任務，達成「夾取技能」嘅學習目標</td></tr>
+    <tr><td>記錄方式調適</td><td>以<strong>貼紙</strong>代替書寫數字，每成功夾一次貼一個貼紙，記錄成果</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h2 class="sec">四、觀察與轉介提示</h2>
+  <h3 class="sub">4.1 課堂觀察重點</h3>
+  <p>老師在教授本教材時，宜留意以下表現，並作持續記錄：</p>
+  <h4 class="mini">🔍 精細動作範疇</h4>
+  <ul>
+    <li>握筷時手指位置長期無法調整至接近正確姿勢</li>
+    <li>夾取棉花球等大型軟身物件時仍有明顯困難</li>
+    <li>日常執筆書寫或使用剪刀時亦有明顯困難</li>
+    <li>手部力度控制出現問題（過鬆或過緊）</li>
+  </ul>
+  <h4 class="mini">🔍 語言理解及表達範疇</h4>
+  <ul>
+    <li>多次重複簡單指示後，學童仍未能理解及執行</li>
+    <li>詞彙量明顯少於同齡學童，難以表達基本需要</li>
+    <li>說話流暢度或清晰度令人明顯難以理解</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h4 class="mini">🔍 社交溝通範疇</h4>
+  <ul>
+    <li>對老師或同伴嘅社交互動缺乏回應（如叫名無反應、眼神接觸極少）</li>
+    <li>難以理解故事中角色嘅情緒（如小明着急嘅表情）</li>
+    <li>對例行程序改變出現強烈情緒反應</li>
+  </ul>
+  <h4 class="mini">🔍 專注力及執行功能範疇</h4>
+  <ul>
+    <li>即使在小組環境下，學童嘅持續專注時間仍明顯短於同齡（K2 一般可維持 10–15 分鐘）</li>
+    <li>指示發出後未能啟動任務，或中途無故停止</li>
+    <li>情緒調節困難，輕微挫敗即引發較長時間嘅崩潰或拒絕情緒</li>
+  </ul>
+  <h4 class="mini">🔍 感覺處理範疇</h4>
+  <ul>
+    <li>對筷子觸感或食物質感出現強烈逃避反應（如哭鬧、拒絕觸碰）</li>
+    <li>對課室正常噪音（如點心車聲音、其他學童說話聲）出現過激反應</li>
+    <li>對自身身體位置嘅覺察明顯不足（如坐姿極度鬆散、經常碰跌物件）</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">4.2 轉介考慮時機</h3>
+  <p>以下情況建議老師與家長溝通，並考慮轉介相關專業評估：</p>
+  <pre>┌─────────────────────────────────────────────────┐
+│  🏥 職業治療師評估                               │
+│  ─────────────────────────────────────────────  │
+│  • 精細動作困難持續影響日常自理及學習活動         │
+│    （如執筆、扣鈕、使用剪刀均有顯著困難）         │
+│  • 感覺處理問題影響課堂參與及情緒穩定            │
+│  • 手部肌肉張力或協調問題令老師感到關注           │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  🗣️ 言語治療師評估                               │
+│  ─────────────────────────────────────────────  │
+│  • 語言理解或表達明顯落後於同齡水平               │
+│  • 說話清晰度令人難以理解，影響溝通意慾           │
+│  • 社交溝通模式（如眼神、輪流對話）有明顯困難     │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  🧠 教育心理學家評估                             │
+│  ─────────────────────────────────────────────  │
+│  • 認知理解、專注力或學習進度明顯落後             │
+│  • 行為或情緒問題持續影響課堂學習及社交           │
+│  • 懷疑學童有自閉症譜系障礙或注意力不足/           │
+│    過度活躍症等特徵                               │
+└─────────────────────────────────────────────────┘</pre>
+</section>
+
+<section class="slide">
+  <h3 class="sub">4.3 與家長溝通建議</h3>
+  <ul>
+    <li>記錄學童<strong>具體行為表現</strong>而非作出標籤性描述，例如：「我留意到○○喺使用筷子練習時，手指位置調整有困難，多次練習後進步不明顯，建議評估一下」，而非「佢好遲鈍」</li>
+    <li>與家長溝通時，強調<strong>及早支援有助學童發展</strong>，以正面框架呈現轉介建議</li>
+    <li>建議老師在轉介前先諮詢學校<strong>學習支援統籌主任</strong>，按校本程序處理</li>
+  </ul>
+  <h2 class="sec">附錄：快速參考表</h2>
+  <table>
+    <tr><th>SEN 支援需要</th><th>首要調適重點</th><th>建議輔助工具</th></tr>
+    <tr><td>專注力困難</td><td>縮短單次學習時段、加入肢體互動</td><td>計時沙漏、視覺流程圖</td></tr>
+    <tr><td>語言發展遲緩</td><td>簡化指示、接受非語言回應</td><td>圖卡、手勢配合</td></tr>
+    <tr><td>社交溝通困難</td><td>預告流程、以社交故事輔助</td><td>視覺日程表、角色扮演道具</td></tr>
+    <tr><td>感覺統合困難</td><td>提供工具選擇、手部暖身</td><td>訓練筷子、防滑橡膠圈</td></tr>
+    <tr><td>精細動作困難</td><td>分階段練習、降低夾取難度</td><td>訓練筷子（彈簧款）、大型夾取物</td></tr>
+    <tr><td>情緒調節困難</td><td>預告轉換、肯定過程</td><td>進度貼紙表、情緒圖卡</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h1 class="title">結語</h1>
+  <blockquote>
+    每位有特殊教育需要嘅學童，都有其獨特嘅學習節奏同潛能。本指引旨在為老師提供實用參考，惟實際調適應以學童嘅個別需要為依歸，並配合家長及相關專業人員持續溝通。《小明去大茶樓》嘅核心信息——「學嘢唔怕慢，最緊要肯試」——正正係我哋希望每一位學童都能感受到嘅學習精神。✨
+  </blockquote>
+</section>
+
+</div>
+<div class="nav">
+  <button id="prev" aria-label="上一頁">‹</button>
+  <div class="counter"><span class="lbl">SEN 教學調適指引</span><span id="counter">1 / 1</span></div>
+  <button id="next" aria-label="下一頁">›</button>
+</div>
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide'));let cur=0;
+  const counter=document.getElementById('counter'),prog=document.getElementById('progress');
+  const prevBtn=document.getElementById('prev'),nextBtn=document.getElementById('next');
+  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,idx)=>s.classList.toggle('active',idx===cur));slides[cur].scrollTop=0;counter.textContent=(cur+1)+' / '+slides.length;prog.style.width=((cur+1)/slides.length*100)+'%';prevBtn.disabled=cur===0;nextBtn.disabled=cur===slides.length-1;}
+  prevBtn.onclick=()=>show(cur-1);nextBtn.onclick=()=>show(cur+1);
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);});
+  show(0);
+</script>
+</body>
+</html>

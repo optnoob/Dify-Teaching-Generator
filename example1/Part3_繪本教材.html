@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《小明去大茶樓》幼兒繪本式教材</title>
+<style>
+  :root{
+    --orange:#E8863A;--deep-orange:#C25A1E;--red:#C0392B;--gold:#F4B942;
+    --cream:#FFF8EF;--ink:#3A2A20;--soft:#7A6A5E;--blue:#3E7CB1;--green:#4E9A6B;--card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Segoe UI",sans-serif;background:#2a1c14;color:var(--ink);line-height:1.7;overflow:hidden;}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px 56px 72px;}
+  .slide{display:none;width:100%;max-width:1000px;height:100%;max-height:640px;background:var(--cream);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow-y:auto;padding:44px 52px;scrollbar-width:thin;}
+  .slide.active{display:block;animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .slide::-webkit-scrollbar{width:9px;}
+  .slide::-webkit-scrollbar-thumb{background:#d8c3ad;border-radius:8px;}
+  .cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(150deg,#6fbf8c,var(--green));color:#fff;}
+  .cover .emoji{font-size:64px;margin-bottom:12px;}
+  .cover h1{font-size:44px;letter-spacing:2px;margin-bottom:14px;text-shadow:0 3px 10px rgba(0,0,0,.25);}
+  .cover h2{font-size:26px;font-weight:600;opacity:.95;margin-bottom:8px;}
+  .cover h3{font-size:18px;font-weight:400;opacity:.9;}
+  .cover .tag{margin-top:26px;background:rgba(255,255,255,.2);padding:8px 22px;border-radius:30px;font-size:15px;}
+  .pagehead{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+  .pagenum{background:var(--red);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0;}
+  .pagehead h1{font-size:26px;color:var(--deep-orange);border:none;padding:0;margin:0;}
+  .illus{background:#EAF3FA;border:2px dashed var(--blue);border-radius:14px;padding:16px 20px;margin:14px 0;font-size:14.5px;color:#33526b;}
+  .illus b{display:block;color:var(--blue);margin-bottom:6px;font-size:15px;}
+  .verse{background:#FFFDF7;border:2px solid var(--gold);border-radius:14px;padding:20px 26px;margin:14px 0;font-size:18px;line-height:2;text-align:center;color:var(--ink);font-weight:600;}
+  .verse .bookttl{font-size:24px;color:var(--red);display:block;margin-bottom:10px;}
+  blockquote.teacher{background:#FBEEE6;border-left:5px solid var(--orange);padding:14px 20px;margin:14px 0;border-radius:0 10px 10px 0;font-size:15px;}
+  blockquote.teacher b{color:var(--deep-orange);}
+  .nav{position:fixed;bottom:0;left:0;right:0;height:56px;background:rgba(20,12,8,.92);display:flex;align-items:center;justify-content:center;gap:20px;z-index:20;}
+  .nav button{background:var(--orange);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;}
+  .nav button:hover{background:var(--gold);}
+  .nav button:disabled{opacity:.3;cursor:default;}
+  .counter{color:#fff;font-size:14px;min-width:120px;text-align:center;font-variant-numeric:tabular-nums;}
+  .counter .lbl{display:block;font-size:11px;opacity:.6;}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);z-index:30;transition:width .3s;}
+  .hint{position:fixed;top:12px;right:20px;color:rgba(255,255,255,.5);font-size:12px;z-index:25;}
+  @media(max-width:640px){.stage{padding:16px 12px 66px;}.slide{padding:26px 22px;}.cover h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="hint">← → 揭頁</div>
+<div class="stage" id="stage">
+
+<section class="slide cover">
+  <div class="emoji">📖</div>
+  <h1>《小明去大茶樓》</h1>
+  <h2>幼兒繪本式教材</h2>
+  <h3>K2 生活常識科　｜　全 13 頁</h3>
+  <div class="tag">Part 3 ｜ 繪本教材</div>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">1</div><h1>封面／主題頁</h1></div>
+  <div class="illus"><b>【插圖】</b>畫面中央係圓臉大眼的小明，穿着淺藍色上衣，笑容燦爛，雙手各拿着一支筷子高高舉起，擺出開心雀躍的姿勢。背景係充滿熱鬧氣氛的茶樓大堂，可見圓桌、紅色燈籠、遠處的點心車。畫面頂部以圓潤大字寫上書名《小明去大茶樓》，底部有一碟蝦餃作裝飾。色調以暖橙色及紅色為主，配合金黃點綴，營造喜慶熱鬧的茶樓氣氛。</div>
+  <div class="verse"><span class="bookttl">《小明去大茶樓》</span>筷子長長兩支竹，<br>學識點用真幸福！<br>快啲跟住小明學，<br>一齊飲茶夾點心！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，你哋有冇去過茶樓飲茶呀？你哋識唔識用筷子呢？今日我哋一齊跟住小明去學！」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">2</div><h1>小明同爸爸媽媽去茶樓</h1></div>
+  <div class="illus"><b>【插圖】</b>小明走在爸爸媽媽中間，三人牽手走進茶樓大門。爸爸高高大大、穿格仔恤衫，媽媽綁着馬尾、穿粉紅色上衣，兩人都面帶微笑望着小明。茶樓大門掛着紅色對聯，門口有一塊寫着「點心」的招牌，地面可見紅色地毯。小明仰頭望着茶樓，眼睛睜得圓圓的，表情充滿好奇與期待。色調暖橙明亮，呈現家庭溫馨出行的快樂氣氛。</div>
+  <div class="verse">今日天氣真正好，<br>小明開心得不了！<br>爸爸媽媽拖住手，<br>一家三口去茶樓。<br><br>茶樓大門紅又亮，<br>小明眼睛閃閃光！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，你哋同邊個去過飲茶呀？去到茶樓，你最鍾意食乜嘢點心呢？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">3</div><h1>坐低，點心來喇！</h1></div>
+  <div class="illus"><b>【插圖】</b>一家三口坐在圓形茶樓餐桌旁，桌上已擺好茶壺、茶杯及一個空碟。一位推着點心車的伯伯笑笑咁經過桌旁，點心車上疊放着竹製點心籠，可見蝦餃、叉燒包、蘿蔔糕等。媽媽指住點心車，開心地望住小明，小明雙手撐在桌上，探頭望向點心車，表情超興奮。桌上放着一雙筷子及一個湯匙。色調溫暖黃橙，食物顏色鮮豔飽滿。</div>
+  <div class="verse">坐低坐低飲啖茶，<br>嘩！點心車推過嚟喇！<br>蝦餃、叉燒包、蘿蔔糕，<br>一籠一籠好多嘢！<br><br>小明望住蝦餃笑：<br>「我想食！我想食！」</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「大家睇下，點心車上面有啲乜嘢呀？你哋數得出幾多種點心？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">4</div><h1>咦，筷子係咩嚟？</h1></div>
+  <div class="illus"><b>【插圖】</b>畫面焦點係桌上一碟晶瑩剔透、熱氣騰騰的蝦餃。小明坐在桌前，手握筷子，但兩支筷子交叉亂晒、方向錯誤，夾唔到蝦餃。小明眉頭微皺，嘴角向下，臉上係困惑又有點着急的表情，眼睛緊緊盯住筷子。他問媽媽：「筷子點用㗎？」旁邊的爸爸媽媽望着小明，帶着鼓勵的笑容。色調溫暖米黃色底，蝦餃用透亮粉白色突出。</div>
+  <div class="verse">小明拿起枱上嘅筷子，<br>左看看、右看看——<br>長長兩支竹，好奇怪！<br><br>「媽媽、媽媽，<br>筷子點用㗎？」<br><br>小明好想用筷子夾蝦餃，<br>但係……點夾好呢？</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，我哋一齊問：『筷子點用㗎？』（帶領跟讀）你哋覺得筷子係做乜嘢用㗎？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">5</div><h1>夾唔到，好著急！</h1></div>
+  <div class="illus"><b>【插圖】</b>小明嘗試用筷子夾蝦餃的連續動態：筷子一直跌跌下，蝦餃滑走了。小明皺起眉頭，眼眶泛紅，嘴角向下彎，快要哭出來的表情。碟上的蝦餃依然安然坐着，好似喺度望住小明。爸爸媽媽在旁邊，表情關心但溫暖。色調略微柔和，營造令學童感同身受但不覺沮喪的氣氛。</div>
+  <div class="verse">夾一下——跌走了！<br>再夾一下——又跌走了！<br>蝦餃蝦餃唔聽話，<br>點解我夾極都夾唔到？<br><br>小明嘟起嘴巴，<br>眼睛紅紅的，<br>快要喊出嚟喇……</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，小明夾唔到蝦餃，佢有咩感覺呀？你有冇試過學一樣嘢但係做唔到，好着急㗎？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">6</div><h1>阿姨話：「我教你！」</h1></div>
+  <div class="illus"><b>【插圖】</b>一位穿着整齊茶樓制服（淺綠色上衣加深色圍裙）、頭髮紥成髻的年輕茶樓阿姨，手托住一個托盤，面帶溫柔笑容，彎下腰望住小明。小明仰頭望住阿姨，表情由着急轉為有少少期待。畫面有對話氣泡：「唔緊要，我教你！」阿姨旁邊隱約可見紅色圓柱及掛燈籠。暖綠色與橙色搭配，氣氛親切安心。</div>
+  <div class="verse">呢個時候，阿姨行過嚟，<br>笑笑口咁同小明講：<br><br>「小朋友，唔緊要，<br>　我教你！」<br><br>小明眼睛即刻亮晒，<br>「真㗎？多謝阿姨！」<br>小明認真地睜大眼睛，<br>準備好好學喇！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「我哋一齊做阿姨，笑笑口講：『唔緊要，我教你！』（帶領跟讀）如果你見到同學唔識做，你會點樣幫佢呢？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">7</div><h1>第一步：托住下面嗰支</h1></div>
+  <div class="illus"><b>【插圖】</b>畫面一分為二：左邊係小明與阿姨的互動場景，阿姨蹲下來與小明並排，手把手示範握筷；右邊係放大的「手部特寫分解圖」，清晰展示第一個步驟——一支筷子橫放在虎口位置（拇指根部），無名指在下方托住筷子，筷子保持不動。分解圖旁邊有大大的數字「1」，箭頭指向「虎口」及「無名指」的位置，以橙色及藍色標記。色調清晰簡潔，主場景保持溫暖橙黃色調。</div>
+  <div class="verse">阿姨話：「第一步，<br>將一支筷子放喺呢度——」<br><br>放在虎口，<br>用無名指輕輕托住。<br><br>「托住，唔好郁！」<br><br>小明照住做：<br>放好……托住……唔郁！<br>阿姨點點頭：「好叻！就係咁！」</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，我哋一齊做！拎起一支筷子，放喺虎口位，用無名指托住。一齊講：『托住，唔好郁！』（邊說邊做動作）」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">8</div><h1>第二步：夾住上面嗰支</h1></div>
+  <div class="illus"><b>【插圖】</b>格式同第7頁相似。左邊係小明跟着阿姨模仿，小明伸出手，阿姨輕輕協助調整其手指位置，兩人都專注低頭看着手。右邊係手部特寫分解圖：第二支筷子像執鉛筆一樣，由拇指、食指、中指三隻手指夾住，筷子上下並排。數字「2」清晰標示，拇指、食指、中指分別以橙、藍、綠色標示，旁邊畫了一支小鉛筆作對比提示，寫住「好似拿鉛筆咁」。色調保持一致清晰。</div>
+  <div class="verse">阿姨話：「第二步，<br>另一支筷子，<br>好似拿鉛筆咁——<br>用拇指、食指、中指夾住！」<br><br>「夾住！」<br><br>小明學住做：<br>好似拿鉛筆……夾住！<br>嘩，兩支筷子排排企喇！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，你哋識唔識拎鉛筆呀？用拿鉛筆嘅方法夾住上面嗰支筷子！一齊講：『夾住！』」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">9</div><h1>第三步：動一動！</h1></div>
+  <div class="illus"><b>【插圖】</b>左邊場景中，小明眼神專注，嘴巴微微張開，緊張而認真地嘗試移動上面嗰支筷子，阿姨在旁邊豎起大拇指鼓勵。右邊手部分解圖展示第三步驟：上筷向下移動靠近下筷，兩支筷子尖端夾住一粒棉花球，以彎曲橙色箭頭標示「上筷移動方向」，下筷有灰色靜止符號「不動」。數字「3」清晰標示。色調活潑動感。</div>
+  <div class="verse">阿姨話：「第三步，<br>上面嗰支，動一動！<br>下面嗰支，唔好郁！<br>兩支筷子夾埋一齊，<br>就可以夾嘢食喇！」<br><br>小明跟住做：<br><br>「托住！夾住！動一動！」<br><br>上面嗰支動呀動，<br>下面嗰支唔郁唔郁——<br>夾！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，我哋一齊拍手仔，跟住節奏講口訣：『托住！夾住！動一動！』（拍手配合節奏，邊說邊模仿手部動作）再嚟多次！」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">10</div><h1>小明認真嘗試</h1></div>
+  <div class="illus"><b>【插圖】</b>畫面焦點係小明，他雙眉微微蹙起，表情非常認真，眼睛緊盯住碟上的蝦餃，手持筷子緩緩靠近。筷子尖端正準備夾住蝦餃，但未完全夾穩，畫面呈現「即將成功」的緊張感。阿姨站在旁邊，雙手輕輕合十放在胸前，表情緊張期待。爸爸媽媽在背景中微笑望着。背景略為柔化，突出小明與蝦餃的互動。</div>
+  <div class="verse">小明深深吸一口氣，<br>眼睛望實蝦餃，<br>慢慢、慢慢靠過去……<br><br>托住……<br>夾住……<br>動一動……<br><br>筷子慢慢夾埋……<br>夾到蝦餃嘞……嗎？<br><br>阿姨緊張到合埋雙手——<br>加油呀，小明！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「我哋幫小明打氣！一齊講：『加油呀，小明！』你哋覺得小明今次夾唔夾到呢？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">11</div><h1>我夾到喇！</h1></div>
+  <div class="illus"><b>【插圖】</b>小明成功用筷子夾起一隻蝦餃！他高舉夾着蝦餃的筷子，臉上掛着超大的笑容，嘴巴張開、眼睛彎成月亮形，是全書最開心的表情。阿姨拍手鼓掌，笑得燦爛；爸爸媽媽也在後方拍手。畫面四周有小星星、小愛心等裝飾元素。筷子夾着的蝦餃清晰可見，光澤飽滿。全書最明亮一頁，以金黃色及橙色為主調。</div>
+  <div class="verse">「我夾到喇！！」<br><br>小明大聲叫出嚟！<br>蝦餃穩穩陣陣夾住咗！<br><br>佢輕輕放入口——<br>嘩，好好味呀！<br><br>爸爸拍手：「小明好棒！」<br>媽媽拍手：「小明好叻！」<br>阿姨拍手：「你做到喇！」<br><br>小明笑得眼睛彎彎，<br>開心到飛起！</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小明成功喇！我哋一齊舉高手，大聲講：『我夾到喇！』（帶領齊聲歡呼）小明點解可以夾到呢？因為佢肯慢慢嘗試，唔放棄呀！」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">12</div><h1>謝謝阿姨！</h1></div>
+  <div class="illus"><b>【插圖】</b>小明雙手合十放在胸前，微微鞠躬，臉上掛着真誠甜蜜的笑容，望住阿姨說「多謝阿姨！」阿姨蹲下來與小明同高，右手輕輕摸小明的頭，左手比出「讚」的手勢，回應：「你好叻！」對話以氣泡呈現。背景係溫馨的茶樓一角，桌上的蝦餃碟已空了一隻。色調溫暖粉橙色，充滿感恩與禮貌的溫暖氛圍。</div>
+  <div class="verse">小明企直身體，<br>雙手合十，深深鞠躬：<br><br>「阿姨，謝謝你教我！」<br><br>阿姨摸摸小明的頭，<br>笑住話：<br>「你好勇敢，肯嘗試，真係叻仔！」<br><br>小明心裡面暖暖的，<br>好似飲咗一杯熱茶咁舒服。<br>佢同自己講：<br>「我返到屋企，要再練習多啲！」</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「小朋友，小明有禮貌地同阿姨講咩呀？我哋一齊向身邊嘅同學或者老師講：『謝謝你教我！』（帶領跟讀及實踐）平時有人幫你，記住要講乜嘢呀？」</blockquote>
+</section>
+
+<section class="slide">
+  <div class="pagehead"><div class="pagenum">13</div><h1>總結頁——我都識用筷子喇！</h1></div>
+  <div class="illus"><b>【插圖】</b>小明站在畫面中央，胸口挺起，雙手各握一支筷子朝外展示，臉上係自豪燦爛的笑容。背景虛化為茶樓場景的剪影。畫面下方有三格小縮圖，依次展示握筷三步驟的迷你分解圖：❶ 托住下筷、❷ 夾住上筷、❸ 動一動。頁面底部寫住：「你都試下！」色調金黃色及暖橙色為主，充滿正能量。</div>
+  <div class="verse">小明學會用筷子喇！<br>你記唔記得三個步驟呢？<br><br>第一步——托住！<br>第二步——夾住！<br>第三步——動一動！<br><br>記住口訣：<br>🎵 「托住！夾住！動一動！」 🎵<br><br>學嘢唔怕慢，<br>最緊要肯試！<br>跌咗唔緊要，<br>再嚟多一次！<br><br>✨ 你都試下！ ✨</div>
+  <blockquote class="teacher"><b>【老師導讀提示】</b><br>「我哋最後一齊講多一次口訣：『托住！夾住！動一動！』（拍手配合節奏）好啦，今日返到屋企，記住同爸爸媽媽一齊練習用筷子呀！你都一定做得到㗎！」</blockquote>
+  <p style="text-align:center;color:var(--soft);margin-top:20px;"><em>—— 全書完 ——</em></p>
+</section>
+
+</div>
+<div class="nav">
+  <button id="prev" aria-label="上一頁">‹</button>
+  <div class="counter"><span class="lbl">繪本教材</span><span id="counter">1 / 1</span></div>
+  <button id="next" aria-label="下一頁">›</button>
+</div>
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide'));let cur=0;
+  const counter=document.getElementById('counter'),prog=document.getElementById('progress');
+  const prevBtn=document.getElementById('prev'),nextBtn=document.getElementById('next');
+  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,idx)=>s.classList.toggle('active',idx===cur));slides[cur].scrollTop=0;counter.textContent=(cur+1)+' / '+slides.length;prog.style.width=((cur+1)/slides.length*100)+'%';prevBtn.disabled=cur===0;nextBtn.disabled=cur===slides.length-1;}
+  prevBtn.onclick=()=>show(cur-1);nextBtn.onclick=()=>show(cur+1);
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);});
+  show(0);
+</script>
+</body>
+</html>

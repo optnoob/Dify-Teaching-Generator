@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《小明去大茶樓》教學指引（教案）</title>
+<style>
+  :root{
+    --orange:#E8863A;--deep-orange:#C25A1E;--red:#C0392B;--gold:#F4B942;
+    --cream:#FFF8EF;--ink:#3A2A20;--soft:#7A6A5E;--blue:#3E7CB1;--green:#4E9A6B;--card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Segoe UI",sans-serif;background:#2a1c14;color:var(--ink);line-height:1.7;overflow:hidden;}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px 56px 72px;}
+  .slide{display:none;width:100%;max-width:1000px;height:100%;max-height:640px;background:var(--cream);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow-y:auto;padding:44px 52px;scrollbar-width:thin;}
+  .slide.active{display:block;animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .slide::-webkit-scrollbar{width:9px;}
+  .slide::-webkit-scrollbar-thumb{background:#d8c3ad;border-radius:8px;}
+  .cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(150deg,#5aa0d6,var(--blue));color:#fff;}
+  .cover .emoji{font-size:64px;margin-bottom:12px;}
+  .cover h1{font-size:44px;letter-spacing:2px;margin-bottom:14px;text-shadow:0 3px 10px rgba(0,0,0,.25);}
+  .cover h2{font-size:26px;font-weight:600;opacity:.95;margin-bottom:8px;}
+  .cover h3{font-size:18px;font-weight:400;opacity:.9;}
+  .cover .tag{margin-top:26px;background:rgba(255,255,255,.2);padding:8px 22px;border-radius:30px;font-size:15px;}
+  h1.title{font-size:32px;color:var(--deep-orange);border-bottom:3px solid var(--gold);padding-bottom:12px;margin-bottom:8px;}
+  h2.sec{font-size:24px;color:var(--red);margin:22px 0 12px;padding-left:12px;border-left:6px solid var(--orange);}
+  h3.sub{font-size:19px;color:var(--deep-orange);margin:18px 0 8px;}
+  h4.mini{font-size:16px;color:var(--blue);margin:14px 0 6px;font-weight:700;}
+  p{margin:8px 0;font-size:15.5px;}
+  ul,ol{margin:8px 0 8px 24px;font-size:15.5px;}
+  li{margin:5px 0;}
+  strong{color:var(--deep-orange);}
+  blockquote{background:#FDF1DF;border-left:5px solid var(--gold);padding:14px 20px;margin:14px 0;border-radius:0 10px 10px 0;font-size:15px;}
+  blockquote.teacher{background:#FBEEE6;border-left-color:var(--orange);}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  th{background:var(--orange);color:#fff;padding:10px 12px;text-align:left;font-weight:600;}
+  td{padding:9px 12px;border-bottom:1px solid #f0e4d5;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#FCF5EC;}
+  .chant{background:linear-gradient(135deg,var(--gold),var(--orange));color:#fff;padding:14px 22px;border-radius:14px;text-align:center;font-size:19px;font-weight:700;margin:16px 0;letter-spacing:1px;box-shadow:0 6px 16px rgba(200,90,30,.3);}
+  .nav{position:fixed;bottom:0;left:0;right:0;height:56px;background:rgba(20,12,8,.92);display:flex;align-items:center;justify-content:center;gap:20px;z-index:20;}
+  .nav button{background:var(--orange);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;}
+  .nav button:hover{background:var(--gold);}
+  .nav button:disabled{opacity:.3;cursor:default;}
+  .counter{color:#fff;font-size:14px;min-width:120px;text-align:center;font-variant-numeric:tabular-nums;}
+  .counter .lbl{display:block;font-size:11px;opacity:.6;}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);z-index:30;transition:width .3s;}
+  .hint{position:fixed;top:12px;right:20px;color:rgba(255,255,255,.5);font-size:12px;z-index:25;}
+  @media(max-width:640px){.stage{padding:16px 12px 66px;}.slide{padding:26px 22px;}.cover h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="hint">← → 揭頁</div>
+<div class="stage" id="stage">
+
+<section class="slide cover">
+  <div class="emoji">📘</div>
+  <h1>《小明去大茶樓》</h1>
+  <h2>教學指引（教案）</h2>
+  <h3>科目：生活常識科　｜　適用班別：K2 主流班別</h3>
+  <div class="tag">Part 2 ｜ 主流班別教案</div>
+</section>
+
+<section class="slide">
+  <h1 class="title">一、課節概覽</h1>
+  <table>
+    <tr><th>項目</th><th>內容</th></tr>
+    <tr><td><strong>主題</strong></td><td>認識筷子的用法及茶樓文化</td></tr>
+    <tr><td><strong>適用班別</strong></td><td>K2 主流班別</td></tr>
+    <tr><td><strong>課節時長</strong></td><td>3 節課（每節約 30 分鐘，共 90 分鐘）</td></tr>
+    <tr><td><strong>教材</strong></td><td>繪本《小明去大茶樓》（第 1–13 頁）</td></tr>
+  </table>
+  <h3 class="sub">學習目標</h3>
+  <p>學習完成後，學生能夠——</p>
+  <h4 class="mini">知識方面</h4>
+  <ul>
+    <li>說出茶樓係一個香港常見的飲食場所</li>
+    <li>認識最少三種茶樓常見點心的名稱（蝦餃、叉燒包、蘿蔔糕）</li>
+    <li>說出正確握筷的三個步驟（托住、夾住、動一動）</li>
+  </ul>
+  <h4 class="mini">技能方面</h4>
+  <ul>
+    <li>嘗試以正確手法握持筷子</li>
+    <li>嘗試用筷子夾起輕巧物件</li>
+  </ul>
+  <h4 class="mini">態度方面</h4>
+  <ul>
+    <li>願意面對困難，保持嘗試的態度，不輕易放棄</li>
+    <li>學會向幫助自己的人表達感謝</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1 class="title">二、教學流程</h1>
+  <h2 class="sec">第一節（約 30 分鐘）｜引入 + 故事講讀（上）</h2>
+  <h3 class="sub">🔷 引入／暖身（約 8 分鐘）</h3>
+  <p><strong>目的：</strong>啟動學生的生活經驗，引起學習興趣。</p>
+  <p><strong>活動：「飲茶問答」</strong></p>
+  <p>老師出示一個茶壺及一個點心蒸籠道具（或圖片），放在講台前，帶動輕鬆氣氛：</p>
+  <blockquote class="teacher">💬 <strong>老師語言示例：</strong><br>
+  「小朋友，老師今日帶咗一樣嘢嚟！你哋估下，係咩嚟㗎？（展示茶壺）係喇！係茶壺！你哋有冇去過茶樓飲茶呀？你哋同邊個去㗎？你最鍾意食邊樣點心呢？好，有冇人試過用筷子夾嘢食呀？夾到夾唔到㗎？」</blockquote>
+  <p>老師邀請 3–4 位學生分享，簡短回應，製造輕鬆互動氣氛。</p>
+  <blockquote class="teacher">💬 <strong>承接語：</strong><br>「今日老師帶咗一本書，入面有個小朋友叫小明，佢第一次去茶樓，但係……佢唔識用筷子呀！我哋一齊睇下佢點算啦！」</blockquote>
+</section>
+
+<section class="slide">
+  <h3 class="sub">🔷 發展：故事講讀（上）—— 第 1 至 6 頁（約 22 分鐘）</h3>
+  <p><strong>活動：繪本共讀 + 互動問答</strong>　老師以大書形式（或投影）逐頁展示繪本，配合以下引導語。</p>
+  <h4 class="mini">第 1 頁｜封面</h4>
+  <blockquote class="teacher">💬「我哋一齊讀書名：《小明去大茶樓》！你哋睇下小明手上拎住咩㗎？係筷子！今日我哋跟住小明去茶樓，學下點用筷子呀！」</blockquote>
+  <p>帶領學生齊讀封面詩：</p>
+  <div class="chant">🎵 筷子長長兩支竹，學識點用真幸福！<br>快啲跟住小明學，一齊飲茶夾點心！</div>
+  <h4 class="mini">第 2 頁｜小明同爸爸媽媽去茶樓</h4>
+  <blockquote class="teacher">💬「今日天氣咁好，小明一家去邊度呀？（等待回應）係喇，去茶樓！你哋睇下小明嘅表情，佢開唔開心㗎？佢眼睛點樣㗎？（引導：眼睛睜得好大！）係囉，因為佢好期待呀！」</blockquote>
+  <p>帶領齊讀詩句，重點朗讀「眼睛閃閃光」時可請學生模仿表情。</p>
+</section>
+
+<section class="slide">
+  <h4 class="mini">第 3 頁｜坐低，點心來喇！</h4>
+  <p>展示圖片，請學生逐一指認點心：</p>
+  <blockquote class="teacher">💬「大家睇下點心車上面有啲乜嘢呀？（指圖）呢個係……蝦餃！呢個係……叉燒包！呢個係……蘿蔔糕！你哋最鍾意食邊樣呀？」</blockquote>
+  <p>模仿小明的表情和動作：</p>
+  <blockquote class="teacher">💬「小明望住蝦餃係點講㗎？我哋一齊學小明咁講：『我想食！我想食！』（帶動作，雙手拍膝，誇張語氣）」</blockquote>
+  <h4 class="mini">第 4 頁｜咦，筷子係咩嚟？</h4>
+  <p>老師拿出真實筷子一雙，模仿小明錯誤握法：</p>
+  <blockquote class="teacher">💬「小明拿起筷子，佢係咁拿㗎——（演示筷子交叉亂晒的錯誤姿勢）夾到夾唔到㗎？（等回應）係喇，夾唔到！佢好困惑，佢問媽媽咩問題㗎？我哋一齊問：『筷子點用㗎？』（帶領齊問，引導疑問語氣）」</blockquote>
+</section>
+
+<section class="slide">
+  <h4 class="mini">第 5 頁｜夾唔到，好着急！</h4>
+  <p>老師帶表情引導情感共鳴：</p>
+  <blockquote class="teacher">💬「夾一下——跌走了！再夾——又跌走了！（語氣誇張，動作示範）你哋估下小明係點感覺㗎？（等回應）係囉，好着急，快要喊出嚟喇！你哋有冇試過做唔到一樣嘢，好着急㗎？（稍作停頓，讓學生聯想）唔緊要，着急唔緊要，最重要係……唔放棄！」</blockquote>
+  <h4 class="mini">第 6 頁｜阿姨話：「我教你！」</h4>
+  <p>老師可戴上茶樓阿姨的頭飾或圍裙道具，角色扮演：</p>
+  <blockquote class="teacher">💬（扮演阿姨，溫柔彎腰）「小朋友，唔緊要，我教你！」<br>（還原老師身份）「阿姨好好呀！小明係點樣講㗎？（帶讀）：『真㗎？多謝阿姨！』如果你見到同學唔識做，你會幫佢嗎？我哋一齊做阿姨，笑笑口講：『唔緊要，我教你！』（帶動作——笑笑口、彎腰）」</blockquote>
+  <p><strong>第一節小結：</strong></p>
+  <blockquote class="teacher">💬「今日我哋睇到小明去茶樓，佢想用筷子夾蝦餃，但係夾唔到。下一次，阿姨會教佢，我哋下堂再睇佢點學㗎！」</blockquote>
+</section>
+
+<section class="slide">
+  <h2 class="sec">第二節（約 30 分鐘）｜發展：故事講讀（下）+ 筷子操學習</h2>
+  <h3 class="sub">🔷 承接回顧（約 5 分鐘）</h3>
+  <blockquote class="teacher">💬「上一次我哋講到邊度㗎？（等回應）小明去咗茶樓，想用筷子夾蝦餃，但係——夾唔到！然後……一位阿姨話要教佢！今日我哋就睇阿姨教小明點樣用筷子㗎！」</blockquote>
+  <p>帶領學生回顧口訣：</p>
+  <blockquote class="teacher">💬「你哋記唔記得阿姨教嘅三個步驟呢？唔記得？咁我哋就一齊睇下喇！」</blockquote>
+  <h3 class="sub">🔷 發展：故事講讀（下）—— 第 7 至 13 頁（約 15 分鐘）</h3>
+  <h4 class="mini">第 7 頁｜第一步：托住下面嗰支</h4>
+  <p>老師同步實物示範，每講一步，學生即時跟做：</p>
+  <blockquote class="teacher">💬「阿姨話第一步——（展示筷子）將一支筷子，放喺呢度——（指虎口位置）呢個位置有個名，叫做『虎口』！你哋張開手，見唔見拇指同食指之間嗰個位呀？就係咁！（請學生張手確認）然後用無名指托住。無名指係第幾隻手指呀？（帶學生數：拇指、食指、中指、無名指）就係第四隻！用佢托住下面嗰支筷子，唔好郁！我哋一齊做，一齊講：『<strong>托住，唔好郁！</strong>』（帶動作）」</blockquote>
+  <p>老師巡視，協助有困難的學生調整手勢。</p>
+</section>
+
+<section class="slide">
+  <h4 class="mini">第 8 頁｜第二步：夾住上面嗰支</h4>
+  <p>老師出示鉛筆作對比教具：</p>
+  <blockquote class="teacher">💬「第二步——另一支筷子，要好似拎鉛筆咁夾住！你哋識唔識拎鉛筆呀？（請學生拎起鉛筆）好！就係咁！用拇指、食指、中指夾住！（邊講邊指學生的手指）宜家唔係拎鉛筆，係拎筷子——換返筷子，夾住上面嗰支！一齊講：『<strong>夾住！</strong>』（帶動作）你哋睇下，兩支筷子係咪排排企㗎？嘩，好叻呀！」</blockquote>
+  <h4 class="mini">第 9 頁｜第三步：動一動！</h4>
+  <blockquote class="teacher">💬「第三步——最後一步喇！記住：<strong>上面嗰支動，下面嗰支唔郁！</strong>我哋試下：下面嗰支——唔郁！上面嗰支——動一動！夾埋一齊！好，我哋一齊拍手，跟住節奏講口訣：</blockquote>
+  <div class="chant">🎵 托住！夾住！動一動！（拍手 × 3，重複兩次）</div>
+  <blockquote class="teacher">💬「嘩！你哋好叻呀！」</blockquote>
+</section>
+
+<section class="slide">
+  <h4 class="mini">第 10 至 11 頁｜小明認真嘗試 + 我夾到喇！</h4>
+  <p>老師製造緊張感，帶動情緒高峰：</p>
+  <blockquote class="teacher">💬「小明深深吸一口氣……（老師配合深呼吸示範）佢慢慢靠近蝦餃……托住……夾住……動一動……你哋估下，今次佢夾唔夾到？（等回應）我哋幫佢打氣！一齊講：『<strong>加油呀，小明！</strong>』（帶動作——握拳揮手）」<br>（翻頁）<br>「<strong>我夾到喇！！</strong>」（老師誇張高聲歡呼，帶全班歡呼）<br>「小明成功喇！爸爸、媽媽、阿姨都拍手！我哋一齊幫小明鼓掌！（帶拍掌）小明點解今次夾到呢？（引導：因為佢慢慢嘗試，唔放棄呀！）」</blockquote>
+</section>
+
+<section class="slide">
+  <h4 class="mini">第 12 至 13 頁｜謝謝阿姨！+ 總結頁</h4>
+  <blockquote class="teacher">💬「小明食到蝦餃之後，佢做咗一件好有禮貌嘅事——佢做咗咩呀？（引導：鞠躬，講多謝）我哋一齊企直身體，雙手合十，向身邊嘅同學鞠個躬，講：『<strong>謝謝你教我！</strong>』（帶動作）」<br>（翻至第 13 頁）<br>「最後，我哋一齊重溫三個步驟！第一步——<strong>托住！</strong> 第二步——<strong>夾住！</strong> 第三步——<strong>動一動！</strong>」</blockquote>
+  <div class="chant">🎵 托住！夾住！動一動！（拍手齊讀，重複三次，逐次加快速度）</div>
+  <h3 class="sub">🔷 筷子操實踐（約 10 分鐘）</h3>
+  <p><strong>活動：「夾棉花球比賽」</strong></p>
+  <p><strong>準備：</strong>每人一雙筷子、每枱一碟棉花球或乒乓球（輕巧易夾）、一個空碗。</p>
+  <blockquote class="teacher">💬「好喇！小明識用筷子喇，而家輪到你哋喇！我哋試下用筷子，將棉花球從碟上夾去空碗裡面，睇下夾到夾唔到！記住口訣：<strong>托住！夾住！動一動！</strong>唔緊要夾唔到，慢慢嚟！最重要係肯試！」</blockquote>
+  <p>老師巡視全班，個別糾正握姿，給予口頭鼓勵。</p>
+  <blockquote class="teacher">💬「（對個別學生）你拇指係咁放㗎？試下再調整一下……好！就係咁！叻仔／叻女！」</blockquote>
+  <p><strong>第二節小結：</strong></p>
+  <blockquote class="teacher">💬「今日我哋學識咗三個步驟，仲用筷子夾咗棉花球！下一節我哋會做習作，練習多啲！」</blockquote>
+</section>
+
+<section class="slide">
+  <h2 class="sec">第三節（約 30 分鐘）｜鞏固活動 + 總結</h2>
+  <h3 class="sub">🔷 熱身回顧（約 5 分鐘）</h3>
+  <p>帶領學生以口訣及動作快速複習：</p>
+  <blockquote class="teacher">💬「上一節我哋學咗用筷子嘅三個步驟。係咩嚟㗎？（等回應）我哋一齊配動作複習：第一步——（示範托住手勢）<strong>托住！</strong> 第二步——（示範夾住手勢）<strong>夾住！</strong> 第三步——（示範動一動）<strong>動一動！</strong> 好，全部一齊：」</blockquote>
+  <div class="chant">🎵 托住！夾住！動一動！</div>
+  <h3 class="sub">🔷 鞏固活動一：角色扮演「我係小老師」（約 10 分鐘）</h3>
+  <p><strong>目的：</strong>鞏固筷子步驟記憶，同時培養互助精神。</p>
+  <p><strong>安排：</strong>全班分成小組（每組 4–5 人），每組選一位「小老師」，手持筷子向組員示範並講出三個步驟，其餘組員跟做。</p>
+  <blockquote class="teacher">💬「宜家我哋玩『我係小老師』！每組嘅小老師，要學阿姨咁，笑笑口教組員點用筷子，一步一步講出嚟。組員就要學小明咁，認真跟住學！」<br>「小老師，準備好未？笑笑口，開始喇！」</blockquote>
+  <p>老師巡視各組，給予鼓勵，並在活動後邀請一至兩組作全班示範。</p>
+</section>
+
+<section class="slide">
+  <h3 class="sub">🔷 鞏固活動二：繪圖習作「我用筷子夾咗咩？」（約 10 分鐘）</h3>
+  <p><strong>習作說明：</strong>派發習作紙，上面印有一雙空白筷子的輪廓圖，以及一個空白方格。</p>
+  <p><strong>指示：</strong></p>
+  <blockquote class="teacher">💬「宜家請大家係空格入面，畫出你用筷子夾到嘅食物或者物件。可以係蝦餃、棉花球、或者任何你想畫嘅嘢！然後喺筷子圖案下面，寫（/說）出你嘅名字！」</blockquote>
+  <p>老師可在黑板上貼示範圖，提示學生作畫方向。完成後請 2–3 位學生上台展示並說明：</p>
+  <blockquote class="teacher">💬「你畫咗咩呀？你用筷子夾到佢嗎？你係點感覺㗎？」</blockquote>
+  <h3 class="sub">🔷 總結（約 5 分鐘）</h3>
+  <p>老師帶領全班站立，以節奏感強的口訣作結：</p>
+  <blockquote class="teacher">💬「今日我哋跟住小明去咗茶樓，學識咗好多嘢！我哋學識咗——<br>✅ 茶樓係香港嘅飲食地方，有好多好食嘅點心！<br>✅ 筷子有三個步驟：<strong>托住！夾住！動一動！</strong><br>✅ 遇到困難，唔好放棄，慢慢嚟，<strong>肯試就係叻仔叻女！</strong><br>✅ 有人幫你，要記得講：<strong>謝謝你教我！</strong><br>最後，我哋一齊最後一次大聲講口訣：」</blockquote>
+  <div class="chant">🎵 托住！夾住！動一動！（拍手 × 3）</div>
+  <blockquote class="teacher">💬「好！今日返到屋企，記住練習㗎！你一定做得到！」</blockquote>
+</section>
+
+<section class="slide">
+  <h1 class="title">三、教具與準備</h1>
+  <h3 class="sub">課室環境佈置</h3>
+  <table>
+    <tr><th>項目</th><th>說明</th></tr>
+    <tr><td><strong>佈置主題</strong></td><td>以「迷你茶樓」為主題佈置課室一角，提升代入感</td></tr>
+    <tr><td><strong>角落佈置</strong></td><td>在課室一角放置圓桌、紅色桌布、紙製燈籠（可由學生預先製作），作為「角色扮演茶樓區」</td></tr>
+    <tr><td><strong>黑板／展示板</strong></td><td>張貼繪本主要場景插圖（可製作成大圖輸出），及「三步驟」口訣海報</td></tr>
+    <tr><td><strong>口訣海報</strong></td><td>製作一張大型海報，寫上：❶ 托住　❷ 夾住　❸ 動一動，配以手部示意圖，貼於黑板旁</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h3 class="sub">教具清單</h3>
+  <table>
+    <tr><th>教具</th><th>數量</th><th>用途</th></tr>
+    <tr><td>繪本《小明去大茶樓》大書或投影版</td><td>1 套</td><td>共讀講故事</td></tr>
+    <tr><td>真實筷子（竹筷）</td><td>每人 1 雙</td><td>筷子操實踐</td></tr>
+    <tr><td>棉花球或乒乓球</td><td>每枱 10–15 粒</td><td>夾物練習</td></tr>
+    <tr><td>小碟子／空碗</td><td>每人各 1 個</td><td>夾物練習</td></tr>
+    <tr><td>鉛筆</td><td>每人 1 支</td><td>對比示範握法</td></tr>
+    <tr><td>茶壺道具（玩具或道具）</td><td>1 個</td><td>引入環節展示</td></tr>
+    <tr><td>點心蒸籠（玩具或道具）</td><td>1 個</td><td>引入環節展示</td></tr>
+    <tr><td>茶樓阿姨頭飾或圍裙</td><td>1 件</td><td>老師角色扮演第 6 頁</td></tr>
+    <tr><td>習作紙（筷子輪廓圖）</td><td>每人 1 張</td><td>第三節習作活動</td></tr>
+    <tr><td>彩色筆／蠟筆</td><td>每人 1 套</td><td>習作活動</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h1 class="title">四、提問與延伸</h1>
+  <h3 class="sub">課堂互動提問建議</h3>
+  <h4 class="mini">知識層面（記憶 / 理解）</h4>
+  <ul>
+    <li>「茶樓係咩嘢地方？你哋去過未？」</li>
+    <li>「你識唔識講出三種茶樓點心嘅名字？」</li>
+    <li>「用筷子有幾多個步驟？係咩嚟㗎？」</li>
+  </ul>
+  <h4 class="mini">應用層面（嘗試 / 操作）</h4>
+  <ul>
+    <li>「你可唔可以用筷子夾起呢粒棉花球㗎？試下！」</li>
+    <li>「如果你係小老師，你會點樣教同學用筷子？」</li>
+  </ul>
+  <h4 class="mini">情感 / 態度層面（反思 / 延伸）</h4>
+  <ul>
+    <li>「小明夾唔到蝦餃嗰陣係咩感覺？你有冇試過學唔識嘢但係唔放棄㗎？」</li>
+    <li>「阿姨幫咗小明，小明係點做㗎？我哋日常生活入面，有人幫你嗰陣，你會點做呢？」</li>
+    <li>「除咗飲茶，仲有咩時候我哋會用到筷子呀？」</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h3 class="sub">家校延伸活動（建議家長在家跟進）</h3>
+  <p>老師可附上以下「家長通告」或口頭提示家長：</p>
+  <blockquote>
+    <p><strong>📋 家長在家延伸活動建議</strong></p>
+    <p><strong>活動一：「筷子操練習」（每天 5 分鐘）</strong><br>請家長在家預備一雙筷子及一碟軟糖、棉花糖或其他輕巧食物，每天讓小朋友跟著口訣練習：</p>
+    <div class="chant">🎵 托住！夾住！動一動！</div>
+    <p>由夾輕巧物件（棉花糖）開始，成功後逐步嘗試夾食物（恕不建議強迫，以鼓勵為主）。</p>
+    <p><strong>活動二：「下次飲茶用筷子」</strong><br>下次帶小朋友去茶樓時，鼓勵小朋友嘗試用筷子夾點心（可由家長在旁輕輕協助），完成後給予讚賞：「你好叻！」</p>
+    <p><strong>活動三：「講故事俾爸爸媽媽聽」</strong><br>請小朋友睡前向家長覆述《小明去大茶樓》的故事，說出小明係點用筷子的，培養語言表達能力。</p>
+    <p><strong>活動四：「去茶樓認點心」</strong><br>下次去茶樓，請小朋友指認點心車上的食物名稱，鼓勵主動問茶樓工作人員：「呢個係咩嚟㗎？」培養表達力及好奇心。</p>
+  </blockquote>
+  <p style="text-align:center;color:var(--soft);margin-top:20px;"><em>教案完</em></p>
+</section>
+
+</div>
+<div class="nav">
+  <button id="prev" aria-label="上一頁">‹</button>
+  <div class="counter"><span class="lbl">主流班別教案</span><span id="counter">1 / 1</span></div>
+  <button id="next" aria-label="下一頁">›</button>
+</div>
+<script>
+  const slides=Array.from(document.querySelectorAll('.slide'));let cur=0;
+  const counter=document.getElementById('counter'),prog=document.getElementById('progress');
+  const prevBtn=document.getElementById('prev'),nextBtn=document.getElementById('next');
+  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,idx)=>s.classList.toggle('active',idx===cur));slides[cur].scrollTop=0;counter.textContent=(cur+1)+' / '+slides.length;prog.style.width=((cur+1)/slides.length*100)+'%';prevBtn.disabled=cur===0;nextBtn.disabled=cur===slides.length-1;}
+  prevBtn.onclick=()=>show(cur-1);nextBtn.onclick=()=>show(cur+1);
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);});
+  show(0);
+</script>
+</body>
+</html>
